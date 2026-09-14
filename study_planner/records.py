@@ -29,5 +29,5 @@ def task_from_record(record: Mapping[str, RecordValue]) -> StudyTask:
         minutes=int(record["minutes"]),
         priority=str(record["priority"]),
         due_date=date.fromisoformat(str(record["due_date"])),
-        completed=bool(record["completed"]),
+        completed=bool(record.get("completed", False)),
     )
