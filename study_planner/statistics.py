@@ -10,4 +10,7 @@ def median_minutes(tasks: Iterable[StudyTask]) -> float:
     values = sorted(task.minutes for task in tasks)
     if not values:
         return 0.0
-    return float(values[len(values) // 2])
+    middle = len(values) // 2
+    if len(values) % 2 == 0:
+        return (values[middle - 1] + values[middle]) / 2
+    return float(values[middle])
